@@ -1,6 +1,5 @@
-import 'firebase/auth';
-
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 export interface SignInResult {
 }
