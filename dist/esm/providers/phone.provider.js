@@ -1,5 +1,5 @@
 import firebase from "firebase/compat/app";
-import { PhoneSignInResult } from '../definitions';
+import { PhoneSignInResult } from "../definitions";
 export const phoneSignInWeb = async (options) => {
     var _a, _b, _c, _d;
     firebase.auth().useDeviceLanguage();

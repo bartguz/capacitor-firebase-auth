@@ -227,4 +227,3 @@ export const cfaSignInPhone = (
 
 // re-exporting the unchanged functions from facades for simple imports.
 export { cfaSignInPhoneOnCodeReceived, cfaSignInPhoneOnCodeSent, cfaSignOut } from "../facades";
-

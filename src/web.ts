@@ -1,14 +1,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-
-import { WebPlugin } from "@capacitor/core";
-
-import { CapacitorFirebaseAuthPlugin, SignInOptions, SignInResult } from "./definitions";
-import { appleSignInWeb } from "./providers/apple.provider";
-import { facebookSignInWeb } from "./providers/facebook.provider";
-import { googleSignInWeb } from "./providers/google.provider";
-import { phoneSignInWeb } from "./providers/phone.provider";
-import { twitterSignInWeb } from "./providers/twitter.provider";
+import {WebPlugin} from "@capacitor/core";
+import {CapacitorFirebaseAuthPlugin, SignInOptions, SignInResult} from "./definitions";
+import {phoneSignInWeb} from "./providers/phone.provider";
 
 export class CapacitorFirebaseAuthWeb extends WebPlugin implements CapacitorFirebaseAuthPlugin {
   constructor() {
@@ -16,21 +10,9 @@ export class CapacitorFirebaseAuthWeb extends WebPlugin implements CapacitorFire
   }
 
   async signIn<T extends SignInResult>(options: {providerId: string; data?: SignInOptions}): Promise<T> {
-    const appleProvider = "apple.com";
-    const googleProvider = new firebase.auth.GoogleAuthProvider().providerId;
-    const facebookProvider = new firebase.auth.FacebookAuthProvider().providerId;
-    const twitterProvider = new firebase.auth.TwitterAuthProvider().providerId;
     const phoneProvider = new firebase.auth.PhoneAuthProvider().providerId;
 
     switch (options.providerId) {
-      case appleProvider:
-        return appleSignInWeb(options) as any;
-      case googleProvider:
-        return googleSignInWeb(options) as any;
-      case twitterProvider:
-        return twitterSignInWeb(options) as any;
-      case facebookProvider:
-        return facebookSignInWeb(options) as any;
       case phoneProvider:
         return phoneSignInWeb(options) as any;
     }
